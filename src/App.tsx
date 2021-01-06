@@ -1,32 +1,44 @@
 import React, { FC } from 'react';
-import { Router, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import { history } from './history';
 import './App.scss';
 import Success from './pages/Success/Success';
+import { WidgetProps } from './lib/config/WidgetProps';
+import { SelectAttributeContext } from './SelectAttributeContext';
 
-const App: FC = () => {
+type AppProps = WidgetProps & {
+  selectAttribute: (attribute: string) => void;
+};
+
+const App: FC<AppProps> = ({
+  attributes,
+  image,
+  attributeType,
+  selectAttribute,
+}) => {
   return (
-    <Router history={history}>
-      <div className='App'>
-        <Route
-          path='/'
-          exact
-          render={() => (
-            <ProductDetail
-              productName='Beats by Dre headphones'
-              productPrice='$400'
-              imageSrc='https://i.ytimg.com/vi/xFe_ZYtfsZg/maxresdefault.jpg'
-              productDescription='Some very long product description lorem ipsum whatever whatever'
-              productAttributes={['xl', 'xxl', 'xxxl']}
-              attributeType='size'
+    <SelectAttributeContext.Provider value={selectAttribute}>
+      <Router history={history}>
+        <div className='App'>
+          <Switch>
+            <Route path='/success' exact component={Success} />
+            <Route
+              path='/'
+              exact
+              render={() => (
+                <ProductDetail
+                  imageSrc={image}
+                  productAttributes={attributes}
+                  attributeType={attributeType}
+                />
+              )}
             />
-          )}
-        />
-        <Route path='/success' component={Success} />
-      </div>
-    </Router>
+          </Switch>
+        </div>
+      </Router>
+    </SelectAttributeContext.Provider>
   );
 };
 

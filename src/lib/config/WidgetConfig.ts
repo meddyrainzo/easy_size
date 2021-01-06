@@ -1,14 +1,9 @@
 import { WidgetButtonConfig } from './WidgetButtonConfig';
+import { WidgetProps } from './WidgetProps';
 
-type WidgetConfig = {
-  productName?: string;
-  productPrice?: string;
-  widgetButton?: WidgetButtonConfig;
-  attributes?: string[];
+type WidgetConfig = WidgetProps & {
+  widgetButton: WidgetButtonConfig;
   cart_button?: string;
-  image?: string;
-  select_attribute?: () => void;
-  productDescription?: string;
 };
 
 export default WidgetConfig;

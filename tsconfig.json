@@ -20,5 +20,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["./src/**/*.tsx", "src/lib/Widget.ts"]
+  "include": ["./src/**/*.tsx", "src/lib/Widget.ts", "src/AppProps.ts"]
 }

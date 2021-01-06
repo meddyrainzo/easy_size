@@ -8,14 +8,9 @@ import { ProductDetailProps } from './ProductDetailProps';
 
 const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
   const [showLoading, setShowLoading] = useState(false);
-  const {
-    imageSrc,
-    productName,
-    productPrice,
-    productDescription,
-    productAttributes,
-    attributeType,
-  } = props;
+  const { imageSrc, productAttributes, attributeType } = props;
+
+  console.log('IN THE PRODUCT DETAIL!');
 
   const createAttributeList = () =>
     productAttributes.map((attribute, index) => (
@@ -47,18 +42,7 @@ const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
           </div>
         </div>
         <div className='product-detail-right'>
-          <PageHeader
-            className='site-page-header'
-            title={productName}
-            extra={[
-              <Tag key='1' color='green'>
-                {productPrice}
-              </Tag>,
-            ]}
-          />
           <div className='product-detail-right-content'>
-            <Row>{productDescription && <p>{productDescription}</p>}</Row>
-            <br />
             <Row>
               <h4>{attributeType.toUpperCase()}</h4>
             </Row>
