@@ -33,6 +33,7 @@ const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
     setTimeout(() => {
       const attribute = getRandomAttribute();
       setShowLoading(false);
+      history.push({ pathname: '/success', state: { attribute } });
     }, 3000);
   };
 
