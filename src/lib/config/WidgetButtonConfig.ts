@@ -3,5 +3,4 @@ export type WidgetButtonConfig = {
   backgroundColor?: string;
   foregroundColor?: string;
   text?: string;
-  style?: string;
 };
