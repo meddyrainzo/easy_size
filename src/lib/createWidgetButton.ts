@@ -20,4 +20,5 @@ function styleWidgetButton(
   placeHolderButton.style.borderRadius = '4px';
   placeHolderButton.style.cursor = 'pointer';
   placeHolderButton.textContent = text!;
+  placeHolderButton.style.margin = '0.4em 0';
 }

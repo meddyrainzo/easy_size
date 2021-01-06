@@ -11,10 +11,19 @@ const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
   const [showLoading, setShowLoading] = useState(false);
   const { imageSrc, productAttributes, attributeType } = props;
 
-  const createAttributeList = () =>
-    productAttributes.map((attribute, index) => (
-      <Tag key={`id-${index}`}>{attribute.toUpperCase()}</Tag>
-    ));
+  const createAttributeList = () => {
+    if (attributeType === 'color' || 'colors') {
+      return productAttributes.map((attribute, index) => (
+        <Tag key={`id-${index}`} color={attribute}>
+          {attribute.toUpperCase()}
+        </Tag>
+      ));
+    } else {
+      return productAttributes.map((attribute, index) => (
+        <Tag key={`id-${index}`}>{attribute.toUpperCase()}</Tag>
+      ));
+    }
+  };
 
   const handleSurpriseMe = () => {
     setShowLoading(true);
@@ -37,16 +46,14 @@ const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
         <div className='product-detail-right'>
           <div className='product-detail-right-content'>
             <Row>
-              <h4>{attributeType.toUpperCase()}</h4>
+              <h4>{`Randomize the ${attributeType}`.toUpperCase()}</h4>
             </Row>
+            <br />
             <Row>{createAttributeList()}</Row>
+            <br />
             <Row>
-              <Button
-                className='product-detail-surprise-me'
-                type='primary'
-                onClick={handleSurpriseMe}
-              >
-                Surprise me!
+              <Button type='default' onClick={handleSurpriseMe}>
+                {'Surprise me!'}
               </Button>
             </Row>
           </div>

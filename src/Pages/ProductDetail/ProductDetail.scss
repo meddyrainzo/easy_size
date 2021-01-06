@@ -29,17 +29,13 @@
     flex-direction: column;
     max-height: inherit;
     background-color: #f0eaea;
-    padding: 4em 2em;
+    padding: 1em;
+    align-items: center;
+    justify-content: center;
 
     &-content {
       padding-left: 1.4em;
-      align-self: flex-start;
     }
-  }
-  &-surprise-me {
-    margin-top: 20px;
-    text-transform: uppercase;
-    align-self: center;
   }
 
   @media (max-width: 736px) {

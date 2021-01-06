@@ -14,7 +14,7 @@ const Success: FC<RouteComponentProps<{}, any, SuccessProps>> = (
   const selectedAttribute = props.location.state
     ? props.location.state.attribute
     : '';
-  const successMessage = `Your surprise pick was \"${selectedAttribute}\"!`;
+  const successMessage = `Your surprise pick was \"${selectedAttribute}\"`;
   const subtitle = 'Click the button below to select this and finalize';
 
   const successClicked = () => {
@@ -29,8 +29,8 @@ const Success: FC<RouteComponentProps<{}, any, SuccessProps>> = (
         title={successMessage}
         subTitle={subtitle}
         extra={[
-          <Button key='success' type='primary' onClick={successClicked}>
-            Select me
+          <Button key='success' type='default' onClick={successClicked}>
+            {'Select me'}
           </Button>,
         ]}
       />

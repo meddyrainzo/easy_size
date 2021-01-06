@@ -25,12 +25,13 @@ function styleModalBackground(modalBackground: HTMLDivElement) {
   modalBackground.style.left = '0';
   modalBackground.style.zIndex = '1';
   modalBackground.style.backgroundColor = '#000';
-  modalBackground.style.opacity = '94%';
+  modalBackground.style.opacity = '98%';
 }
 
 function styleModal(modal: HTMLDivElement) {
   modal.style.maxWidth = '64vw';
-  modal.style.maxHeight = '80vh';
+  modal.style.maxHeight = '72vh';
+  modal.style.minWidth = '50vw';
   modal.style.backgroundColor = 'white';
   modal.style.zIndex = '2';
 }
