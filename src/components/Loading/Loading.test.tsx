@@ -1,4 +1,4 @@
-import '../../pages/ProductDetail/node_modules/@testing-library/jest-dom';
+import '@testing-library/jest-dom';
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import Loading from './Loading';

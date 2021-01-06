@@ -1,6 +1,8 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
+    mode: 'production',
     entry: './src/lib/Widget.tsx',
     output: {
         path: path.join(__dirname, '/dist'),
@@ -10,8 +12,12 @@ module.exports = {
         umdNamedDefine: true,
         libraryExport: 'default' 
     }, 
+    // target: 'node', // in order to ignore built-in modules like path, fs, etc.
+    // externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
     devServer: {
-        contentBase: './dist'
+        host: '127.0.0.1',
+        contentBase: './src/lib',
+        port: 3355
     },
     module: {
         rules: [
@@ -23,12 +29,10 @@ module.exports = {
             {
                 test: /\.js$/,
                 use: ["source-map-loader"],
-                exclude: /node_modules/,
                 enforce: "pre"
             },
             { 
                 test: /\.s[ac]ss$/i,
-                exclude: /node_modules/,
                 use: [
                     "style-loader",
                     "css-loader",

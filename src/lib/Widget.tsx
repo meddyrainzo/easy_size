@@ -5,7 +5,7 @@ import App from '../App';
 
 import WidgetConfig from './config/WidgetConfig';
 import { createWidgetButton } from './createWidgetButton';
-import { createModal } from './modal';
+import { clearModal, createModal } from './modal';
 
 type WidgetType = {
   start: () => void;
@@ -48,6 +48,7 @@ export default function Widget({
 
   function closeModal() {
     if (!modal) return;
+    clearModal(modal);
     document.querySelector(selector)?.removeChild(modal);
     modal = undefined;
   }

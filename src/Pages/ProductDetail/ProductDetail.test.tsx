@@ -8,15 +8,11 @@ describe('Test the product detail page', () => {
     render(
       <ProductDetail
         imageSrc='src'
-        productName='product'
-        productPrice='$100'
         attributeType='colors'
         productAttributes={['red', 'green', 'blue']}
       />
     );
 
-    expect(screen.getByText(/product/)).toBeInTheDocument();
-    expect(screen.getByText(/\$100/)).toBeInTheDocument();
     expect(screen.getByText(/COLORS/)).toBeInTheDocument();
   });
 
@@ -24,8 +20,6 @@ describe('Test the product detail page', () => {
     render(
       <ProductDetail
         imageSrc='src'
-        productName='product'
-        productPrice='$100'
         attributeType='colors'
         productAttributes={['red', 'green', 'blue']}
       />

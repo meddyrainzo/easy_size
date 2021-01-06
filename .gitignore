@@ -5,6 +5,7 @@ yarn-error.log*
 
 node_modules
 index.html
+index.js
 
 .vscode
 .idea

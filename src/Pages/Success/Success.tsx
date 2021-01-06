@@ -1,9 +1,10 @@
 import { Button, Result } from 'antd';
 import React, { FC, useContext } from 'react';
-import { Redirect, RouteComponentProps } from 'react-router';
+import { RouteComponentProps } from 'react-router';
 import { SuccessProps } from './SuccessProps';
 
 import './Success.scss';
+import { history } from '../../history';
 import { SelectAttributeContext } from '../../SelectAttributeContext';
 
 const Success: FC<RouteComponentProps<{}, any, SuccessProps>> = (
@@ -17,8 +18,8 @@ const Success: FC<RouteComponentProps<{}, any, SuccessProps>> = (
   const subtitle = 'Click the button below to select this and finalize';
 
   const successClicked = () => {
+    history.goBack();
     selectAttribute(selectedAttribute);
-    <Redirect to='/' />;
   };
 
   return (

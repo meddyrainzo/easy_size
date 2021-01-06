@@ -10,8 +10,6 @@ const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
   const [showLoading, setShowLoading] = useState(false);
   const { imageSrc, productAttributes, attributeType } = props;
 
-  console.log('IN THE PRODUCT DETAIL!');
-
   const createAttributeList = () =>
     productAttributes.map((attribute, index) => (
       <Tag key={`id-${index}`}>{attribute.toUpperCase()}</Tag>
