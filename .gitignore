@@ -10,3 +10,5 @@ index.js
 .vscode
 .idea
 dist
+yarn.lock
+package.json.lock

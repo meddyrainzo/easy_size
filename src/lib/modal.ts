@@ -29,7 +29,7 @@ function styleModalBackground(modalBackground: HTMLDivElement) {
   modalBackground.style.left = '0';
   modalBackground.style.zIndex = '1';
   modalBackground.style.backgroundColor = '#000';
-  modalBackground.style.opacity = '90%';
+  modalBackground.style.opacity = '94%';
 }
 
 function styleModal(modal: HTMLDivElement) {

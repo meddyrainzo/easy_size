@@ -1,5 +1,4 @@
 const path = require('path');
-const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     mode: 'production',
@@ -11,14 +10,12 @@ module.exports = {
         libraryTarget: 'umd',
         umdNamedDefine: true,
         libraryExport: 'default' 
-    }, 
-    // target: 'node', // in order to ignore built-in modules like path, fs, etc.
-    // externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
-    devServer: {
-        host: '127.0.0.1',
-        contentBase: './src/lib',
-        port: 3355
     },
+    performance: {
+        hints: false,
+        maxEntrypointSize: 51200,
+        maxAssetSize: 51200
+      },
     module: {
         rules: [
             {
