@@ -5,7 +5,7 @@ import App from '../App';
 
 import WidgetConfig from './config/WidgetConfig';
 import { createWidgetButton } from './createWidgetButton';
-import { clearModal, createModal } from './modal';
+import { createModal } from './modal';
 
 type WidgetType = {
   start: () => void;
@@ -22,35 +22,28 @@ export default function Widget({
     text = 'Surprise me',
   },
 }: WidgetConfig) {
-  let modal: HTMLDivElement | undefined;
+  let modal = createModal();
   function showModal() {
-    if (!modal) {
-      modal = createModal();
-      modal.addEventListener('click', () => closeModal());
+    modal.addEventListener('click', () => closeModal());
 
-      const selectorElement = document.querySelector(selector);
-      selectorElement?.appendChild(modal);
+    const selectorElement = document.querySelector(selector);
+    selectorElement?.appendChild(modal);
 
-      ReactDOM.render(
-        <StrictMode>
-          <App
-            image={image}
-            attributes={attributes}
-            attributeType={attributeType}
-            selectAttribute={selectAttribute}
-          />
-        </StrictMode>,
-        modal.firstElementChild
-      );
-    }
-    document.querySelector(selector)?.appendChild(modal);
+    ReactDOM.render(
+      <StrictMode>
+        <App
+          image={image}
+          attributes={attributes}
+          attributeType={attributeType}
+          selectAttribute={selectAttribute}
+        />
+      </StrictMode>,
+      modal.firstElementChild
+    );
   }
 
   function closeModal() {
-    if (!modal) return;
-    clearModal(modal);
     document.querySelector(selector)?.removeChild(modal);
-    modal = undefined;
   }
 
   function selectAttribute(attributeId: string) {

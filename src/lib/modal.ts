@@ -13,10 +13,6 @@ export function createModal() {
   return modalBackground;
 }
 
-export function clearModal(modal: HTMLDivElement) {
-  // modal.textContent = '';
-}
-
 // STYLES
 function styleModalBackground(modalBackground: HTMLDivElement) {
   modalBackground.style.position = 'fixed';

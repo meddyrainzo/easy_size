@@ -4,7 +4,6 @@
   "description": "This is the solution for the easysize frontend task",
   "main": "Widget.tsx",
   "scripts": {
-    "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "serve": "http-server ./dist -p 3355 -a 127.0.0.1",
     "test": "jest"
