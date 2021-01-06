@@ -48,10 +48,8 @@ const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
             <Row>
               <h4>{`Randomize the ${attributeType}`.toUpperCase()}</h4>
             </Row>
-            <br />
             <Row>{createAttributeList()}</Row>
-            <br />
-            <Row>
+            <Row style={{ marginTop: '2vh' }}>
               <Button type='default' onClick={handleSurpriseMe}>
                 {'Surprise me!'}
               </Button>
