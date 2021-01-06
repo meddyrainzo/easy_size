@@ -1,0 +1,37 @@
+.hide-loading {
+  display: none;
+}
+
+.show-loading {
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h2 {
+    color: #fafafa;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation-name: animateLoading;
+    animation-direction: alternate;
+    animation-duration: 0.9s;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes animateLoading {
+  from {
+    transform: scale(0.4);
+  }
+  to {
+    transform: scale(1);
+  }
+}

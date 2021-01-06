@@ -13,7 +13,7 @@ function styleWidgetButton(
   widgetButtonConfig: WidgetButtonConfig
 ) {
   const { backgroundColor, foregroundColor, text } = widgetButtonConfig;
-  placeHolderButton.style.padding = '1em 2em';
+  placeHolderButton.style.padding = '0.4em 1.2em';
   placeHolderButton.style.backgroundColor = backgroundColor;
   placeHolderButton.style.color = foregroundColor;
   placeHolderButton.style.border = `1px solid ${backgroundColor}`;

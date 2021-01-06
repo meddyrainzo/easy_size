@@ -18,15 +18,17 @@ module.exports = {
             {
                 test: /\.(ts|tsx)$/,
                 loader: 'babel-loader',
-                exclude: /node-modules/
+                exclude: /node_modules/
             },
             {
                 test: /\.js$/,
                 use: ["source-map-loader"],
+                exclude: /node_modules/,
                 enforce: "pre"
             },
             { 
                 test: /\.s[ac]ss$/i,
+                exclude: /node_modules/,
                 use: [
                     "style-loader",
                     "css-loader",
