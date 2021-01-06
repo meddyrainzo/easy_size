@@ -75,7 +75,7 @@ export default function Widget({
       widgetButton.addEventListener('click', () => showModal());
       document.querySelector(selector)?.append(widgetButton);
       widgetButton.animate([{ opacity: '0' }, { opacity: '100' }], {
-        duration: 250,
+        duration: 400,
       });
     },
   };
