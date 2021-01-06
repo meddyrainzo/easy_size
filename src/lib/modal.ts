@@ -1,6 +1,7 @@
 export function createModal() {
   const modalBackground = document.createElement('div');
   const modal = document.createElement('div');
+  modal.classList.add('react-container');
   modalBackground.appendChild(modal);
 
   styleModalBackground(modalBackground);

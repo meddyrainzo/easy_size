@@ -1,10 +1,14 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: './src/lib/Widget.tsx',
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: './demo.js'
+        filename: './demo.js',
+        library: 'Widget',
+        libraryTarget: 'umd',
+        umdNamedDefine: true,
+        libraryExport: 'default' 
     }, 
     devServer: {
         contentBase: './dist'
@@ -21,6 +25,14 @@ module.exports = {
                 use: ["source-map-loader"],
                 enforce: "pre"
             },
+            { 
+                test: /\.s[ac]ss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader",
+                ]
+            }
         ]
     },
     resolve: {

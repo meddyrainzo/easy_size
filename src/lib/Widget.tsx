@@ -1,3 +1,8 @@
+import React, { StrictMode } from 'react';
+import ReactDOM from 'react-dom';
+
+import App from '../App';
+
 import WidgetConfig from './config/WidgetConfig';
 import { createWidgetButton } from './createWidgetButton';
 import { createModal } from './modal';
@@ -6,7 +11,7 @@ type WidgetType = {
   start: () => void;
 };
 
-export function Widget({
+export default function Widget({
   widgetButton: {
     selector,
     backgroundColor = '#0DAC50',
@@ -14,7 +19,6 @@ export function Widget({
     text = 'Surprise me',
   },
 }: WidgetConfig) {
-  console.log('Inside the widget');
   function showModal(modal: HTMLDivElement) {
     document.querySelector(selector).appendChild(modal);
   }
@@ -37,6 +41,13 @@ export function Widget({
       modal.addEventListener('click', () => closeModal(modal));
 
       document.querySelector(selector).appendChild(widgetButton);
+
+      ReactDOM.render(
+        <StrictMode>
+          <App />
+        </StrictMode>,
+        modal.firstElementChild
+      );
     },
   };
   return main;
