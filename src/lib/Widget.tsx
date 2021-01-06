@@ -5,7 +5,11 @@ import App from '../App';
 
 import WidgetConfig from './config/WidgetConfig';
 import { createWidgetButton } from './createWidgetButton';
-import { createModal } from './modal';
+import {
+  addModalToBackground,
+  createModalBackground,
+  removeModalFromBackground,
+} from './modal';
 
 type WidgetType = {
   start: () => void;
@@ -22,12 +26,14 @@ export default function Widget({
     text = 'Surprise me',
   },
 }: WidgetConfig) {
-  let modal = createModal();
+  let modalBackground = createModalBackground();
+
   function showModal() {
-    modal.addEventListener('click', () => closeModal());
+    modalBackground.addEventListener('click', () => closeModal());
+    addModalToBackground(modalBackground);
 
     const selectorElement = document.querySelector(selector);
-    selectorElement?.appendChild(modal);
+    selectorElement?.appendChild(modalBackground);
 
     ReactDOM.render(
       <StrictMode>
@@ -38,12 +44,16 @@ export default function Widget({
           selectAttribute={selectAttribute}
         />
       </StrictMode>,
-      modal.firstElementChild
+      modalBackground.firstElementChild
     );
   }
 
   function closeModal() {
-    document.querySelector(selector)?.removeChild(modal);
+    removeModalFromBackground(modalBackground);
+    setTimeout(
+      () => document.querySelector(selector)?.removeChild(modalBackground),
+      250
+    );
   }
 
   function selectAttribute(attributeId: string) {
@@ -64,6 +74,9 @@ export default function Widget({
       });
       widgetButton.addEventListener('click', () => showModal());
       document.querySelector(selector)?.append(widgetButton);
+      widgetButton.animate([{ opacity: '0' }, { opacity: '100' }], {
+        duration: 250,
+      });
     },
   };
   return main;

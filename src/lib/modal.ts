@@ -1,16 +1,30 @@
-export function createModal() {
+export function createModalBackground() {
   const modalBackground = document.createElement('div');
+  styleModalBackground(modalBackground);
+
+  return modalBackground;
+}
+
+export function addModalToBackground(modalBackground: HTMLDivElement) {
   const modal = document.createElement('div');
   modal.classList.add('react-container');
-  modalBackground.appendChild(modal);
-
-  styleModalBackground(modalBackground);
   styleModal(modal);
   modal.addEventListener('click', function (e) {
     e.stopPropagation();
   });
 
-  return modalBackground;
+  modalBackground.appendChild(modal);
+  modal.animate([{ transform: 'scale(0)' }, { transform: 'scale(1)' }], {
+    duration: 400,
+  });
+}
+
+export function removeModalFromBackground(modalBackground: HTMLDivElement) {
+  const modal = modalBackground.firstChild! as HTMLDivElement;
+  modal.animate([{ transform: 'scale(1)' }, { transform: 'scale(0)' }], {
+    duration: 250,
+  });
+  setTimeout(() => modalBackground.removeChild(modal), 250);
 }
 
 // STYLES
