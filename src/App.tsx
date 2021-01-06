@@ -23,10 +23,9 @@ const App: FC<AppProps> = ({
       <Router history={history}>
         <div className='App'>
           <Switch>
-            <Route path='/success' exact component={Success} />
+            <Route path='/success' component={Success} />
             <Route
               path='/'
-              exact
               render={() => (
                 <ProductDetail
                   imageSrc={image}
