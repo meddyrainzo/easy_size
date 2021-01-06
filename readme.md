@@ -10,8 +10,8 @@ A button is attached to an element on your HTML page. Clicking on this button la
 
 In order to use the library, the following configurations must be set
 
-- `attributes` -> `mandatory`: This is a string array containing the names of the ids of the attributes you wish to randomly choose from
-- `attributeType` -> `mandatory`: This is a string representing the type of the attribute you are randomizing. For example, "colors", "size", "length" etc.
+- `attributes` -> `mandatory`: This is a string array containing the ids of the attributes you wish to randomly select from
+- `attributeType` -> `mandatory`: This is a string that represents the name of the group of attributes being selected from. For example, "colors", "size", "length" etc.
 - `image` -> `mandatory`: This is a string representing the image url of the product
 - `widgetButton` -> This is an object that gives flexibility to the button that launches the modal. It can take the following parameters
   - `selector` -> `mandatory`: This is the selector of the element you want to attach the button to

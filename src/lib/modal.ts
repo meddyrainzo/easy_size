@@ -33,7 +33,7 @@ function styleModalBackground(modalBackground: HTMLDivElement) {
 }
 
 function styleModal(modal: HTMLDivElement) {
-  modal.style.maxWidth = '80vw';
+  modal.style.maxWidth = '64vw';
   modal.style.maxHeight = '80vh';
   modal.style.backgroundColor = 'white';
   modal.style.zIndex = '2';

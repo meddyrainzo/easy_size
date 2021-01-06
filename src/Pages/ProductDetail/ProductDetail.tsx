@@ -5,6 +5,7 @@ import { history } from '../../history';
 import Loading from '../../components/Loading/Loading';
 import './ProductDetail.scss';
 import { ProductDetailProps } from './ProductDetailProps';
+import { getRandomAttribute } from '../../utils/getRandomAttribute';
 
 const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
   const [showLoading, setShowLoading] = useState(false);
@@ -15,16 +16,10 @@ const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
       <Tag key={`id-${index}`}>{attribute.toUpperCase()}</Tag>
     ));
 
-  const getRandomAttribute = (): string => {
-    const random = Math.random();
-    const index = Math.floor(random * productAttributes.length);
-    return productAttributes[index];
-  };
-
   const handleSurpriseMe = () => {
     setShowLoading(true);
     setTimeout(() => {
-      const attribute = getRandomAttribute();
+      const attribute = getRandomAttribute(productAttributes);
       setShowLoading(false);
       history.push({ pathname: '/success', state: { attribute } });
     }, 3000);
