@@ -18,8 +18,6 @@ const Success: FC<RouteComponentProps<{}, any, SuccessProps>> = (
   const subtitle = 'Click the button below to select this and finalize';
 
   const successClicked = () => {
-    // setTimeout(history.goBack, 250);
-    console.log('Selecting the attribute');
     history.goBack();
     selectAttribute(selectedAttribute);
   };

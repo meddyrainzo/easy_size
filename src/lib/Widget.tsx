@@ -64,13 +64,13 @@ export default function Widget({
       attributeId
     ) as HTMLInputElement;
     inputElement.checked = true;
+    closeModal();
     if (cartButtonSelector) {
       const cartButton = document.querySelector(
         cartButtonSelector
       ) as HTMLButtonElement;
       cartButton.click();
     }
-    closeModal();
   }
 
   const main: WidgetType = {
