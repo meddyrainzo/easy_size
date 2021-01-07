@@ -19,7 +19,9 @@ export default function Widget({
   attributes,
   image,
   attributeType,
-  widgetButton: {
+  cartButtonSelector,
+  selectAttribute = (_: string) => {},
+  widgetLaunchButton: {
     selector,
     backgroundColor = '#0DAC50',
     foregroundColor = '#FAFAFA',
@@ -41,7 +43,7 @@ export default function Widget({
           image={image}
           attributes={attributes}
           attributeType={attributeType}
-          selectAttribute={selectAttribute}
+          selectAttribute={selectAttributeAction}
         />
       </StrictMode>,
       modalBackground.firstElementChild
@@ -56,11 +58,18 @@ export default function Widget({
     );
   }
 
-  function selectAttribute(attributeId: string) {
+  function selectAttributeAction(attributeId: string) {
+    selectAttribute(attributeId);
     const inputElement = document.getElementById(
       attributeId
     ) as HTMLInputElement;
     inputElement.checked = true;
+    if (cartButtonSelector) {
+      const cartButton = document.querySelector(
+        cartButtonSelector
+      ) as HTMLButtonElement;
+      cartButton.click();
+    }
     closeModal();
   }
 

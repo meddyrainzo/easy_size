@@ -46,7 +46,9 @@ const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
         <div className='product-detail-right'>
           <div className='product-detail-right-content'>
             <Row>
-              <h4>{`Randomize the ${attributeType}`.toUpperCase()}</h4>
+              <h5>
+                {'Sit back and relax while we make the right choice for you'.toLocaleUpperCase()}
+              </h5>
             </Row>
             <Row>{createAttributeList()}</Row>
             <Row style={{ marginTop: '2vh' }}>

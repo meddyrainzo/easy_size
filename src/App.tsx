@@ -9,7 +9,7 @@ import { WidgetProps } from './lib/config/WidgetProps';
 import { SelectAttributeContext } from './SelectAttributeContext';
 
 type AppProps = WidgetProps & {
-  selectAttribute: (attribute: string) => void;
+  selectAttribute: (_: string) => void;
 };
 
 const App: FC<AppProps> = ({
