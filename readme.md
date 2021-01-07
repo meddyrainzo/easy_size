@@ -39,7 +39,3 @@ Example configuration
             text: 'Really surprise me!'
         },
     }
-
-### Disclaimer
-
-The path to the image in the sample configuration file is missing the 'public' directory :)
