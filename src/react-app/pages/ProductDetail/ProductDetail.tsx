@@ -1,13 +1,11 @@
-import { Button, PageHeader, Row, Tag } from 'antd';
+import { Button, Row, Tag } from 'antd';
 import React, { FC, useContext, useState } from 'react';
 
-import { history } from '../../history';
 import Loading from '../../components/Loading/Loading';
 import './ProductDetail.scss';
 import { ProductDetailProps } from './ProductDetailProps';
-import { getRandomAttribute } from '../../utils/getRandomAttribute';
 import { SelectAttributeContext } from '../../SelectAttributeContext';
-import { randomizeAction } from '../../action/statusAction';
+import { randomizeAction } from '../../action/statusActionsCreators';
 
 const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
   const [showLoading, setShowLoading] = useState(false);

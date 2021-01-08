@@ -31,14 +31,9 @@ export default function Widget({
   let modalBackground = createModalBackground();
 
   function selectAttributeAction(attribute: string) {
-    // const inputElement = document.getElementById(
-    //   attributeId
-    // ) as HTMLInputElement;
-    // inputElement.checked = true;
     selectAttribute(attribute);
     closeModal();
     if (cartButtonSelector) {
-      console.log(`The cart button: ${cartButtonSelector}`);
       const cartButton = document.querySelector(
         cartButtonSelector
       ) as HTMLButtonElement;
