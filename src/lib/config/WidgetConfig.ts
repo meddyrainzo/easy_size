@@ -3,7 +3,7 @@ import { WidgetProps } from './WidgetProps';
 
 type WidgetConfig = WidgetProps & {
   cartButtonSelector?: string;
-  selectAttribute?: (attrId: string) => void;
+  selectAttribute: (attrId: string) => void;
   widgetLaunchButton: WidgetButtonConfig;
 };
 

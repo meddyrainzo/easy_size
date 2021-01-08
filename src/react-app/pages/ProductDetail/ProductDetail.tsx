@@ -1,15 +1,18 @@
 import { Button, PageHeader, Row, Tag } from 'antd';
-import React, { FC, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 
 import { history } from '../../history';
 import Loading from '../../components/Loading/Loading';
 import './ProductDetail.scss';
 import { ProductDetailProps } from './ProductDetailProps';
 import { getRandomAttribute } from '../../utils/getRandomAttribute';
+import { SelectAttributeContext } from '../../SelectAttributeContext';
+import { randomizeAction } from '../../action/statusAction';
 
 const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
   const [showLoading, setShowLoading] = useState(false);
   const { imageSrc, productAttributes, attributeType } = props;
+  const { dispatch } = useContext(SelectAttributeContext);
 
   const createAttributeList = () => {
     if (attributeType === 'color' || 'colors') {
@@ -28,9 +31,8 @@ const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
   const handleSurpriseMe = () => {
     setShowLoading(true);
     setTimeout(() => {
-      const attribute = getRandomAttribute(productAttributes);
       setShowLoading(false);
-      history.push({ pathname: '/success', state: { attribute } });
+      dispatch(randomizeAction(productAttributes));
     }, 3000);
   };
 

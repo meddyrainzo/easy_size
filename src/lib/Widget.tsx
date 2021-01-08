@@ -1,7 +1,7 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
-import App from '../App';
+import App from '../react-app/App';
 
 import WidgetConfig from './config/WidgetConfig';
 import { createWidgetButton } from './createWidgetButton';
@@ -20,7 +20,7 @@ export default function Widget({
   image,
   attributeType,
   cartButtonSelector,
-  selectAttribute = (_: string) => {},
+  selectAttribute,
   widgetLaunchButton: {
     selector,
     backgroundColor = '#0DAC50',
@@ -29,6 +29,22 @@ export default function Widget({
   },
 }: WidgetConfig) {
   let modalBackground = createModalBackground();
+
+  function selectAttributeAction(attribute: string) {
+    // const inputElement = document.getElementById(
+    //   attributeId
+    // ) as HTMLInputElement;
+    // inputElement.checked = true;
+    selectAttribute(attribute);
+    closeModal();
+    if (cartButtonSelector) {
+      console.log(`The cart button: ${cartButtonSelector}`);
+      const cartButton = document.querySelector(
+        cartButtonSelector
+      ) as HTMLButtonElement;
+      cartButton.click();
+    }
+  }
 
   function showModal() {
     modalBackground.addEventListener('click', () => closeModal());
@@ -43,7 +59,7 @@ export default function Widget({
           image={image}
           attributes={attributes}
           attributeType={attributeType}
-          selectAttribute={selectAttributeAction}
+          selectAttributeFn={selectAttributeAction}
         />
       </StrictMode>,
       modalBackground.firstElementChild
@@ -57,22 +73,6 @@ export default function Widget({
       () => document.querySelector(selector)?.removeChild(modalBackground),
       250
     );
-  }
-
-  function selectAttributeAction(attributeId: string) {
-    selectAttribute(attributeId);
-    const inputElement = document.getElementById(
-      attributeId
-    ) as HTMLInputElement;
-    inputElement.checked = true;
-    closeModal();
-    if (cartButtonSelector) {
-      console.log(`The cart button: ${cartButtonSelector}`);
-      const cartButton = document.querySelector(
-        cartButtonSelector
-      ) as HTMLButtonElement;
-      // cartButton.click();
-    }
   }
 
   const main: WidgetType = {
