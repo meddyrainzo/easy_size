@@ -1,5 +1,5 @@
 import { Button, Result } from 'antd';
-import React, { FC, useContext } from 'react';
+import React, { FC, useContext, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { SuccessProps } from './SuccessProps';
 
@@ -17,10 +17,12 @@ const Success: FC<RouteComponentProps<{}, any, SuccessProps>> = (
   const successMessage = `Your surprise pick was \"${selectedAttribute}\"`;
   const subtitle = 'Click the button below to select this and finalize';
 
-  const successClicked = () => {
-    history.goBack();
-    selectAttribute(selectedAttribute);
-  };
+  useEffect(() => {
+    return () => {
+      console.log('Unmounting');
+      history.goBack();
+    };
+  }, []);
 
   return (
     <div className='success-page'>
@@ -29,7 +31,11 @@ const Success: FC<RouteComponentProps<{}, any, SuccessProps>> = (
         title={successMessage}
         subTitle={subtitle}
         extra={[
-          <Button key='success' type='default' onClick={successClicked}>
+          <Button
+            key='success'
+            type='default'
+            onClick={() => selectAttribute(selectedAttribute)}
+          >
             {'Select me'}
           </Button>,
         ]}

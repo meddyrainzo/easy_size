@@ -1,3 +1,8 @@
-import React, { createContext } from 'react';
+import React, { createContext, Dispatch } from 'react';
+import { StatusActionType } from './action/statusAction';
+import { initialStatusState, StatusState } from './reducer/statusReducer';
 
-export const SelectAttributeContext = createContext((attribute: string) => {});
+export const SelectAttributeContext = createContext<{
+  state: StatusState;
+  dispatch: Dispatch<StatusActionType>;
+}>({ state: initialStatusState, dispatch: () => null });

@@ -52,6 +52,7 @@ export default function Widget({
 
   function closeModal() {
     removeModalFromBackground(modalBackground);
+    modalBackground.removeEventListener('click', () => closeModal());
     setTimeout(
       () => document.querySelector(selector)?.removeChild(modalBackground),
       250
@@ -66,10 +67,11 @@ export default function Widget({
     inputElement.checked = true;
     closeModal();
     if (cartButtonSelector) {
+      console.log(`The cart button: ${cartButtonSelector}`);
       const cartButton = document.querySelector(
         cartButtonSelector
       ) as HTMLButtonElement;
-      cartButton.click();
+      // cartButton.click();
     }
   }
 

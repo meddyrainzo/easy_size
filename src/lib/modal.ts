@@ -20,7 +20,8 @@ export function addModalToBackground(modalBackground: HTMLDivElement) {
 }
 
 export function removeModalFromBackground(modalBackground: HTMLDivElement) {
-  const modal = modalBackground.firstChild! as HTMLDivElement;
+  const modal = modalBackground.firstChild as HTMLDivElement;
+  if (!modal) return;
   modal.animate([{ transform: 'scale(1)' }, { transform: 'scale(0)' }], {
     duration: 250,
   });
