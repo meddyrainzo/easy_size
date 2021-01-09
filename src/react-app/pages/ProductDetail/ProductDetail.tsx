@@ -5,7 +5,7 @@ import Loading from '../../components/Loading/Loading';
 import './ProductDetail.scss';
 import { ProductDetailProps } from './ProductDetailProps';
 import { SelectAttributeContext } from '../../SelectAttributeContext';
-import { randomizeAction } from '../../action/statusActionsCreators';
+import { randomizeAction } from '../../action/statusActionCreators';
 
 const ProductDetail: FC<ProductDetailProps> = (props: ProductDetailProps) => {
   const [showLoading, setShowLoading] = useState(false);

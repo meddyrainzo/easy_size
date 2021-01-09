@@ -28,7 +28,6 @@ export function removeModalFromBackground(modalBackground: HTMLDivElement) {
   setTimeout(() => modalBackground.removeChild(modal), 250);
 }
 
-// STYLES
 function styleModalBackground(modalBackground: HTMLDivElement) {
   modalBackground.style.position = 'fixed';
   modalBackground.style.width = '100vw';

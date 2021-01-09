@@ -1,9 +1,8 @@
 import { WidgetButtonConfig } from './WidgetButtonConfig';
-import { WidgetProps } from './WidgetProps';
+import { AppProps } from '../AppProps';
 
-type WidgetConfig = WidgetProps & {
+type WidgetConfig = AppProps & {
   cartButtonSelector?: string;
-  selectAttribute: (attrId: string) => void;
   widgetLaunchButton: WidgetButtonConfig;
 };
 

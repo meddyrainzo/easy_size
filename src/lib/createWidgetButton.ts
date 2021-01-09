@@ -7,7 +7,6 @@ export function createWidgetButton(widgetButtonConfig: WidgetButtonConfig) {
   return placeHolderButton;
 }
 
-// THE STYLES
 function styleWidgetButton(
   placeHolderButton: HTMLButtonElement,
   widgetButtonConfig: WidgetButtonConfig

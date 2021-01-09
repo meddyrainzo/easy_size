@@ -54,7 +54,7 @@ export default function Widget({
           image={image}
           attributes={attributes}
           attributeType={attributeType}
-          selectAttributeFn={selectAttributeAction}
+          selectAttribute={selectAttributeAction}
         />
       </StrictMode>,
       modalBackground.firstElementChild

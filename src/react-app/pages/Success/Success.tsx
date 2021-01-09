@@ -4,7 +4,7 @@ import { SuccessProps } from './SuccessProps';
 
 import './Success.scss';
 import { SelectAttributeContext } from '../../SelectAttributeContext';
-import { finishAction } from '../../action/statusActionsCreators';
+import { finishAction } from '../../action/statusActionCreators';
 
 const Success: FC<SuccessProps> = (props: SuccessProps) => {
   const { state, dispatch } = useContext(SelectAttributeContext);
