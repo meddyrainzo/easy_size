@@ -13,7 +13,10 @@ describe('Test the product detail page', () => {
       />
     );
 
-    expect(screen.getByText(/COLORS/)).toBeInTheDocument();
+    expect(screen.getByText(/RED/)).toBeInTheDocument();
+    expect(screen.getByText(/GREEN/)).toBeInTheDocument();
+    expect(screen.getByText(/BLUE/)).toBeInTheDocument();
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
   test('The loading page should show when you click the surprise me button', () => {
