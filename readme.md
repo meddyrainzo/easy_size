@@ -36,8 +36,8 @@ Example configuration
         },
     }
 
-## Switching from router to useReducer and useContext
+## Using useReducer + useContext over using React-router
 
-At first glance, solving this with `React-router` seems like the straight forward solution. The trick here is that with `React-router`, the library will be directly altering the routes of the client's site. This means the library will change the route on the client site when it (the library) goes from one it's pages to the other. I doubt this is the intended behavior of the library.
+At first glance, solving this with `React-router` seemed like the straight forward solution. The trick here is that with `React-router`, the library will be directly altering the routes of the client's site. This means the library will change the route on the client site when it (the library) goes from one it's pages to the other.
 
-Instead, I chose to solve this using the `useReducer` and `useContext` hooks along with conditionally showing the pages of the librarry's modal depending on the state of the modal (`IDLE` or `IN-PROGRESS`)
+This is why I chose to solve this using the `useReducer` and `useContext` hooks along with conditionally showing the pages of the library's modal depending on the state of the modal (`IDLE` or `IN-PROGRESS`)
